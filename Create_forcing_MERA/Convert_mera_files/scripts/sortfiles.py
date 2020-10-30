@@ -36,8 +36,8 @@ def count_duplicates(singlelist,totallist,styear,stmonth,stday,sthour,endyear,en
 
 
 def sortfiles(fp,MERA,startime,endtime):
-    paramlist=[fs.replace(MERA+'/','').split('_')[4] for fs in fp]
-    paramheight=[fs.replace(MERA+'/','').split('_')[4] for fs in fp]
+    paramlist=[fs.split('MERA_PRODYEAR')[1].split('_')[3] for fs in fp]
+    paramheight=[fs.split('MERA_PRODYEAR')[1].split('_')[5]  for fs in fp]
     styear=int(startime.split('/')[0])
     stmonth=int(startime.split('/')[1])
     stday=int(startime.split('/')[2])
