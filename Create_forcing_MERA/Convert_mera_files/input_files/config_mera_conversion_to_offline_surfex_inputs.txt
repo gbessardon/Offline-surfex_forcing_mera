@@ -1,0 +1,38 @@
+#Config file
+#This config file is used to run the scripts to prepare inputs for offline-surfex-forcing
+
+~Mandatory args
+
+#Directory where all the MERA data are stored
+MERAdatadirectory=/data/gbessardon/MERA/2018/
+
+#Directory the data will be saved
+savedatadirectory=/data/gbessardon/MERA/offline_surfex_input/2018/
+
+#Header name of the new MERA data
+filename=MERA_offline_surfex_input_testjuly
+
+#Start date YYYY/MM/DD/HH
+startdate=2018/01/01/00
+
+#End date YYYY/MM/DD/HH
+enddate=2018/01/03/23
+
+#Forecast length (3 or 33)
+Forecast=3
+
+#area file name
+Areafn=/data/gbessardon/Create_forcing_MERA/Convert_mera_files/input_files/domain.json
+
+#create_forcing config filename
+CFfn=/data/gbessardon/Create_forcing_MERA/run_forcing/input_files/create_forcing_config.txt
+
+#forcing output file name
+forcingfn=/data/gbessardon/Create_forcing_MERA/FORCING.nc
+
+#User filename one of the offline surfex input
+Userfn=/data/gbessardon/Create_forcing_MERA/run_forcing/input_files/user.yml
+
+
+~Optional args
+#Just set up here for future developpements

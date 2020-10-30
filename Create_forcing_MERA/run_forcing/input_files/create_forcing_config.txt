@@ -1,0 +1,154 @@
+#Temperature/humidity reference height --zref and winds reference height --uref set as screen
+#means 2-m Temperature/humidity and 10-m wind speed other option ml does not work with the
+#offline-surfex-forcing version tested
+#co2 constant as not in MERA files 0.00062
+#Options regarding the field contained in the MERA file:
+#0Orography options available#1 wind speed options available
+#1 wind directions available
+#1 Specific humidity options available
+#1 temperature options available
+#1 surface pressure options available
+
+#1 direct shortwave options available
+#1 scattered shortwave options available
+#1 longwave radiation options available
+#1 rainfall options available#0 snowfall option available
+~~~~~~ Positional arguments~~~~~~~~~
+#start time format YYYYMMDDHH
+start_time=2018010100
+#end time format YYYYMMDDHH
+end_time=2018010323
+#configuration file describing the points or location
+area_file=/data/gbessardon/Create_forcing_MERA/Convert_mera_files/input_files/domain.json
+~~~~~~ Optional arguments ~~~~~~~~~~~
+#Forcing file pattern 
+--pattern
+input_forcing_file_pattern=/data/gbessardon/MERA/offline_surfex_input/2018//MERA_offline_surfex_input_testjuly@YYYY@@MM@@DD@_@HH@+@LL@.grb
+#Input file format {netcdf, grib1, grib2, surfex}
+--input_format
+input_file_format= grib1
+# Configuration file in yaml format describing customized variable setup
+--config
+config_file=/data/gbessardon/Create_forcing_MERA/run_forcing/input_files/user.yml
+#Output file name
+-of
+outputfn=/data/gbessardon/Create_forcing_MERA/FORCING.nc
+#Temperature/humidity reference height {ml,screen}
+--zref
+ZRTU=screen
+# Wind reference height
+--uref
+ZW=screen
+#Air temperature [K]
+###Air temperature input format {default,netcdf,grib1,grib2,surfex}
+--ta
+TAinputformat=
+###Converter function to air temperature {none} 
+--ta_converter 
+TAconverter=none
+
+#Specific humidity
+### Specific humidityinput format {default,netcdf,grib1,grib2,surfex}
+--qa
+Qinputformat=
+###Converter function to specific humidity {none,rh2q}
+--qa_converter
+Qconverter=rh2q
+
+#Surface air pressure [Pa]
+###Surface air pressure input format {default,netcdf,grib1,grib2,surfex,constant}
+--ps
+Pinputformat=
+###Converter function to surface air pressure 
+--ps_converter
+Pconverter=none
+
+#Direct shortwave radiation
+### Direct short wave radiation input format {default,netcdf,grib1,grib2,surfex,constant}
+--dir_sw
+DSWinputformat=   
+### Converter function to direct short wave radiation {none} 
+--dir_sw_converter
+DSWconverter=none
+
+#Scattered short wave radiation flux
+### Scattered short wave radiation input format {netcdf,grib,constant}
+--sca_sw
+SCA_SWinputformat=
+###Converter function to scattered shortwave radiation flux {none}
+--sca_sw_converter
+SCA_SWconverter=none
+
+#Long wave radiation flux
+#Long wave radiation input format {netcdf,grib1,grib2,surfex,constant}
+--lw
+LWinputformat=
+#converter function to long wave radiation {none}
+--lw_converter
+LWconverter=none
+
+#Rainfall rate
+###Long wave radiation input format {default,netcdf,grib1,grib2,surfex} 
+--rain
+Raininputformat=
+###Converter function to rainfall rate {none,totalprec,calcrain}
+--rain_converter
+Rainconverter=totalprec
+
+
+#Snowfall rate
+###Snowfall rate input format {default,netcdf,grib1,grib2,surfex}
+--snow 
+Snowinputformat=
+###Converter function to snowfall rate {none,calcsnow}
+--snow_converter
+
+# Wind speed
+###Wind speed input format {default,netcdf,grib1,grib2,surfex}
+--wind
+Windinputformat=
+###Converter function to wind speed {none,windspeed}
+--wind_converter 
+Windconverter=windspeed
+
+#Wind direction
+###Wind direction input format {default,netcdf,grib1,grib2,surfex}
+--wind_dir 
+Winddirinputformat=
+###Converter function to wind speed {none,winddir}
+--wind_dir_converter
+Winddirconverter=winddir
+
+#Carbon dioxide
+###Carbon dioxide input format {default,netcdf,grib1,grib2,surfex}
+--co2
+CO2inputformat=constant
+###Converter function to carbone dioxide {none}
+--co2_converter
+CO2converter=
+
+#Surface geopotential
+###Surface geopotential input format {netcdf,grib1,grib2,surfex,constant}
+--zsoro
+ZSinputformat=
+###Converter function to surface geopotential {none,phi2m}
+--zsoro_converter
+ZSconverter=none
+
+#Reference height for temperature and humidity
+### Reference height for temperature and humidity input format {netcdf,grib1,grib2,surfex,constant}
+--zval
+ZREFinputformat=
+### Converter function to reference height for temperature and humidity {none}
+--zval_converter
+ZREFconverter=
+
+
+#Reference height for wind
+###Reference height for wind input format {netcdf,grib1,grib2,surfex,constant}
+--uval
+UVALinputformat=
+###Converter function to  Reference height for wind input {none}
+--uval_converter
+UVALconverter=
+

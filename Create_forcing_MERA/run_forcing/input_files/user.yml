@@ -1,0 +1,170 @@
+grib1:
+     offset: 0
+     file_inc: 3600
+
+     fcint: 10800     
+     
+# Orography
+ZS:
+  grib1:
+    converter:
+      none:
+        parameter: 8
+        type: sfc
+        level: 0
+        tri: 0
+      phi2m:
+        phi:
+          parameter: 8
+          type: sfc
+          level: 0
+          tri: 0
+
+# Temperature
+TA:
+    grib1:
+      converter:
+        none:
+          parameter: 11
+          type: sfc
+          level: 2
+          tri: 0
+          
+# Specific humidity
+QA:
+    grib1:
+      converter:
+        none:
+          parameter: 51
+          type: sfc
+          level: 2
+          tri: 0
+        rh2q:
+          rh:
+            parameter: 52
+            type: sfc
+            level: 2
+            tri: 0
+          t:
+            parameter: 11
+            type: sfc
+            level: 2
+            tri: 0
+          p:
+            parameter: 1
+            type: sfc
+            level: 0
+            tri: 0
+# Wind speed
+WIND:
+    grib1:
+      converter:
+        none:
+          parameter: 32
+          type: sfc
+          level: 10
+          tri: 0
+        windspeed:
+          x:
+            parameter: 33
+            type: sfc
+            level: 10
+            tri: 0
+          y:
+            parameter: 34
+            type: sfc
+            level: 10
+            tri: 0
+# Wind direction
+WIND_DIR:
+    grib1:
+      converter:
+        none:
+          parameter: 31
+          type: sfc
+          level: 10
+          tri: 0
+        winddir:
+          x:
+            parameter: 33
+            type: sfc
+            level: 10
+            tri: 0
+            rotate_to_geographic: True
+          y:
+            parameter: 34
+            type: sfc
+            level: 10
+            tri: 0
+            rotate_to_geographic: True
+
+# Rainfall rate
+RAIN:
+  grib1:
+    converter:
+      none:
+        parameter: 221
+        type: sfc
+        level: 0
+        tri: 0
+      totalprec:
+        totalprec:
+          parameter: 61
+          type: sfc
+          level: 0
+          tri: 0
+          instant: 3600.
+        snow:
+          parameter: 184
+          type: sfc
+          level: 0
+          tri: 0
+          instant: 3600.
+# Snow fall amount rate
+SNOW:
+  grib1:
+    converter:
+      none:
+        parameter: 184
+        type: sfc
+        level: 0
+        tri: 0
+        instant: 3600.
+
+# Surface air pressure
+PS:
+  grib1:
+    converter:
+      none:
+        parameter: 1
+        type: sfc
+        level: 0
+        tri: 0
+# Direct shortwave radiation
+DIR_SW:
+  grib1:
+    converter:
+      none:
+        parameter: 116
+        type: sfc
+        level: 0
+        tri: 0
+
+# Direct scattered radiation
+SCA_SW:
+  grib1:
+    converter:
+      none:
+        parameter: 117
+        type: sfc
+        level: 0
+        tri: 0
+# Long wave radiation
+LW:
+  grib1:
+    converter:
+      none:
+        parameter: 115
+        type: sfc
+        level: 0
+        tri: 0
